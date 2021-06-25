@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlintodolist.R
@@ -27,7 +28,7 @@ class TodoAdapter(
     }
      */
     class TodoViewHolder(val itemView:View):RecyclerView.ViewHolder(itemView){
-
+    val tvTodoTask=itemView.findViewById<TextView>(R.id.tvTodoTask)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -37,7 +38,8 @@ class TodoAdapter(
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        holder?.itemView?.tvTodoTask.text=todos[position].task  //JAVA todos.get(position)
+        holder?.tvTodoTask?.text=todos[position].task
+        //JAVA todos.get(position)
 
     }
 
