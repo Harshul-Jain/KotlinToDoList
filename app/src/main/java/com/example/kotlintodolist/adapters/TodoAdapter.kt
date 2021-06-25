@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlintodolist.R
 import com.example.kotlintodolist.models.ToDo
+import kotlinx.android.synthetic.main.list_item_todo.view.*
 
 class TodoAdapter(
     val todos:ArrayList<ToDo>
@@ -29,13 +31,14 @@ class TodoAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
-        val li=parent?.context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val itemView=li.inflate(android.R.layout.simple_list_item_1,parent,false)
+        val li=parent?.context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater // typecasting in Kotlin
+        val itemView=li.inflate(R.layout.list_item_todo,parent,false)
         return TodoViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        
+        holder?.itemView?.tvTodoTask.text=todos[position].task  //JAVA todos.get(position)
+
     }
 
     override fun getItemCount(): Int {
