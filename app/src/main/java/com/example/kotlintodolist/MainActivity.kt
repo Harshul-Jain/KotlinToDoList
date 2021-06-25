@@ -20,5 +20,10 @@ class MainActivity : AppCompatActivity() {
         val todoAdapter:TodoAdapter= TodoAdapter(todos)
         rvTodos.adapter=todoAdapter
 
+        btnAdd.setOnClickListener{
+            val newTodo=etNewTodo.text.toString()
+            todos.add(ToDo(newTodo,false))
+            todoAdapter.notifyDataSetChanged()
+        }
     }
 }
